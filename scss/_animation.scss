@@ -1,0 +1,285 @@
+@use 'foundation/_common' as c;
+
+/*************************************************
+animation
+*************************************************/
+@keyframes updown-anim{
+  0%{
+    transform: translateY(110%); /*表示範囲外から*/
+  }
+  10%{
+    transform: translateY(0); /*通常の位置へ*/
+  }
+  50%{
+    transform: translateY(0); /*文字が上に揃うまで待機*/
+  }
+  60%{
+    transform: translateY(110%); /*下がる*/
+  }
+  100%{
+    transform: translateY(110%); /*待機*/
+  }
+}
+
+/*** アニメーションする要素の親 ***/
+.updown{
+  // display: flex; /*　横並びに */
+  overflow: hidden; /* はみ出たものを非表示に */
+  flex-direction: column;
+  span{
+    // writing-mode: vertical-rl;
+    overflow: hidden; /* はみ出たものを非表示に */
+  }
+}
+
+/*** アニメーションを適用する要素 ***/
+.updown .change {
+  font-size: 4rem;
+  transform: translateY(120%); /*デフォルトで下に隠す*/
+  display: block; /*ブロック要素に*/
+  animation: 3.5s updown-anim-c linear forwards; /* アニメーション */
+}
+.updown .c-change {
+  font-size: 4rem;
+  transform: translateY(120%); /*デフォルトで下に隠す*/
+  display: block; /*ブロック要素に*/
+  // animation: 3.3s updown-anim-cc linear forwards; /* アニメーション */
+  animation: 3.5s updown-anim-cc linear forwards; /* アニメーション */
+
+  // animation-delay: .3s;
+}
+/*** 各span(文字)に遅延時間delayを設定 ***/
+.updown span:nth-child(1) {
+  animation-delay: 0s;
+}
+.updown span:nth-child(2) {
+  animation-delay: 0.05s;
+}
+.updown span:nth-child(3) {
+  animation-delay: 0.1s;
+}
+.updown span:nth-child(4) {
+  animation-delay: 0.15s;
+}
+.updown span:nth-child(5) {
+  animation-delay: 0.3s;
+}
+.updown span:nth-child(6) {
+  animation-delay: 0.35s;
+}
+.updown span:nth-child(7) {
+  animation-delay: 0.4s;
+}
+// .change:nth-child(1) {
+//   animation-delay: 0s;
+// }
+// .change:nth-child(2) {
+//   animation-delay: 0.05s;
+// }
+// .change:nth-child(3) {
+//   animation-delay: 0.1s;
+// }
+// .change:nth-child(4) {
+//   animation-delay: 0.15s;
+// }
+// .c-change:nth-child(1) {
+//   animation-delay: 0.3s;
+// }
+// .c-change:nth-child(2) {
+//   animation-delay: 0.35s;
+// }
+// .c-change:nth-child(3) {
+//   animation-delay: 0.4s;
+// }
+// .delay-04{
+//   animation-delay: 0.3s;
+// }
+// .delay-05{
+//   animation-delay: 0.4s;
+// }
+// .delay-06{
+//   animation-delay: 0.4s;
+// }
+/*** 装飾用 ***/
+.updown{
+  font-weight: bold;
+  // font-size: 2rem;
+  margin: 2rem;
+}
+
+@keyframes updown-anim-c{
+  0%{
+    transform: translateY(120%); /*表示範囲外から*/
+    color: black;
+  }
+  10%{
+    transform: translateY(0); /*通常の位置へ*/
+  }
+  100%{
+    transform: translateY(0); /*文字が上に揃うまで待機*/
+    // color: aqua;
+  }
+}
+@keyframes updown-anim-cc{
+  0%{
+    transform: translateY(110%); /*表示範囲外から*/
+  }
+  10%{
+    transform: translateY(0); /*通常の位置へ*/
+    color: black;
+  }
+  30%{
+    color: aqua;
+  }
+  100%{
+    transform: translateY(0); /*文字が上に揃うまで待機*/
+    color: aqua;
+  }
+}
+.sample{
+  padding: 20rem 0;
+  .item{
+    overflow: hidden;
+    display: flex;
+    span{
+      font-size: 6rem;
+      transform: translateY(120%); /*デフォルトで下に隠す*/
+      color: #000;
+    }
+    .yellow{
+      transform: translateY(120%); /*デフォルトで下に隠す*/
+
+      transform: translateY(120%); /*デフォルトで下に隠す*/
+      
+    }
+  }
+  
+}
+.upText{
+  animation: .8s updown-vh linear forwards; /* アニメーション */
+  
+}
+.upText-Y{
+  animation: .8s updown-vh-y linear forwards; /* アニメーション */
+}
+.delay-02{
+  animation-delay: .1s !important;
+}
+.delay-04{
+  animation-delay: .2s !important;
+}
+.delay-06{
+  animation-delay: .3s !important;
+}
+@keyframes updown-vh{
+  0%{
+    transform: translateY(120%);
+  }
+  50%{
+    transform: translateY(0);
+  }
+  100%{
+    transform: translateY(0);
+  }
+}
+
+@keyframes updown-vh-y{
+  0%{
+    transform: translateY( 120%);
+    color: #000;
+  }
+  50%{
+    color: #000;
+    transform: translateY(0);
+  }
+  80%{
+    transform: translateY(0);
+    color: #000;
+  }
+  100%{
+    transform: translateY(0);
+    color: springgreen;
+  }
+}
+.bg-hex{
+  .bg-test{
+    position: relative;
+    background: #ccc;
+    padding: 20rem 0;
+    span{
+      background: url(../images/bg-06.png) no-repeat;
+      width: 200px;
+      height: 200px;
+      background-size: contain;
+      position: absolute;
+      top: 30%;
+      left: 10%;
+    }
+    .l-0{
+      animation: 5s opacity ease-in infinite;
+
+    }
+    .l-1{
+      top: 30%;
+      left: 35%;
+      animation: 15s opacity2 ease-in infinite;
+    }
+    .l-2{
+      top: 30%;
+      left: 50%;
+      animation: 10s opacity ease-in infinite;
+
+    }
+    .l-3{
+      top: 30%;
+      left: 70%;
+      animation: 10s opacity2 ease-in infinite;
+    }
+  }
+}
+@keyframes opacity {
+  0%{
+    opacity: 0;
+  }
+  20%{
+    opacity: 1;
+  }
+  40%{
+    opacity: 1;
+  }
+  50%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+@keyframes opacity2 {
+  0%{
+    opacity: 0;
+  }
+  50%{
+    opacity: 0;
+  }
+  40%{
+    opacity: 1;
+  }
+  70%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+.book{
+  .pagesBox.A{
+    background: blue;
+    width: 50%;
+  }
+  .pagesBox.B{
+    background: red;
+  }
+  .B{
+    backface-visibility: hidden;
+  }
+}

@@ -1,0 +1,226 @@
+/*************************************************
+common-style
+*************************************************/
+@mixin base_width{
+  margin: 0 auto;
+  width: 1280px;
+}
+// @extendでスタイルの継承
+// @mixinでステイルの定義
+// @includeでmixinの呼び出し
+
+// ブレイクポイント
+// PC基準でコーディングする場合
+$breakpoints: (
+  "sp": "screen and (max-width: 400px)",
+  "sm": "screen and (max-width: 599px)", //スマホ
+  "md": "screen and (max-width: 1024px)", //タブレット
+  "lg": "screen and (min-width: 1499px)", //大きめデスクトップ
+) !default;
+@mixin mq($breakpoint: sm) {
+  @media #{map-get($breakpoints , $breakpoint)} {
+    @content;
+  }
+}
+*{
+  box-sizing: border-box;
+}
+.ie_ObjectFit {
+object-fit: cover;
+font-family: 'object-fit: cover;'
+}
+
+body{
+  font-family: "Noto Serif JP","Times New Roman", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
+  // outline: 2px solid blue;
+
+}
+$sans: 'Noto Sans JP', sans-serif;
+$ten: ten-mincho, serif;
+$zen: zen-old-mincho, sans-serif;
+$be: #898775;
+
+// /iOSでのデフォルトスタイルをリセット /
+input[type="submit"],
+input[type="button"] {
+border-radius: 0;
+-webkit-box-sizing: content-box;
+-webkit-appearance: button;
+appearance: button;
+border: none;
+box-sizing: border-box;
+&::-webkit-search-decoration {
+display: none;
+}
+&::focus {
+outline-offset: -2px;
+}
+}
+
+
+// font-size の設定
+// https://stand-4u.com/css/css-fontsize.html
+
+html {
+  font-size: 62.5%;
+}
+/* bodyのフォントサイズを1.6em（16px）に設定 */
+body {
+  font-size: 1.6em;
+  letter-spacing: .1em;
+  a{
+    display: block;
+    transition: .3s;
+    cursor: pointer;
+  }
+  a:link {
+    // color:#189B12;
+    text-decoration:none;
+  }
+  a:visited {
+    // color:#189B12;
+    text-decoration:none;
+  }
+  a:hover {
+    opacity: 0.7;
+  }
+  a:active {
+    color:#666;
+  }
+  img{
+    border:0;
+    vertical-align: bottom;
+    width: 100%;
+    height: auto;
+  }
+  .wrapper{
+    width: 1000px;
+    margin: 0 auto;
+    @media screen and (max-width: 1100px) {
+      width: 90%;
+    }
+  }
+  p,li,a,dt,dd,tr,td{
+    font-size: 1.6rem;
+    line-height: 2;
+    @include mq(sp){
+      font-size: 1.5rem;
+    }
+  }
+  .pc{display: block;}.sp,.ssp{display: none;}.pc-tb{  display: block;}
+    @include mq(sm){.pc,.ssp{display: none;}.sp,.pc-tb{display: block;}}
+    @include mq(sp){.sp,.ssp{display: block;}.pc-tb,.pc{display: none;}}
+    .container{
+      display: flex;
+      @include mq(sm){
+        flex-direction: column;
+      }
+    }
+    .zen-b{
+      font-family: $zen;
+      font-weight: 600;
+    }
+    .bg-gry{
+      background: #F6F6F6;
+    }
+    .bg-white{
+      background: #fff;
+    }
+}
+.sec-ttl{
+  border-bottom: 1px solid $be;
+  padding-bottom: .8rem;
+  span{
+    img{
+      width: 83px;
+    }
+  }
+    .ttl{
+      margin-top: 1rem;
+      font-size: 3rem;
+      line-height: 1.6;
+      @include mq(md){
+        font-size: 2.4rem;
+      }
+      @include mq(sm){
+        font-size: 2rem;
+      }
+    }
+}
+
+//じわっとでてくる
+.blur{
+	animation-name:blurAnime;
+	animation-duration:1s;
+	animation-fill-mode:forwards;
+}
+
+@keyframes blurAnime{
+  from {
+	filter: blur(10px);
+	transform: scale(1.02);
+	opacity: 0;
+  }
+
+  to {
+	filter: blur(0);
+	transform: scale(1);
+	opacity: 1;
+  }
+}
+ 
+.blurTrigger{
+    opacity: 0;
+}
+//ふわっとでてくる
+.fadeIn{
+	animation-name:fadeAnime;
+	animation-duration:1s;
+	animation-fill-mode:forwards;
+}
+.fadeInTrigger{
+  opacity: 0;
+}
+@keyframes fadeAnime{
+  from {
+	opacity: 0;
+  }
+
+  to {
+	opacity: 1;
+  }
+}
+
+.delay02{
+  animation-delay: .2s;
+}
+.delay04{
+  animation-delay: .4s;
+}
+.delay05{
+  animation-delay: .5s;
+}
+.delay06{
+  animation-delay: .6s;
+}
+//ふわっとしたからでてくる
+.fadeUp{
+	animation-name:fadeUpAnime;
+	animation-duration:1s;
+	animation-fill-mode:forwards;
+}
+.fadeUpTrigger{
+  opacity: 0;
+}
+@keyframes fadeUpAnime{
+  from {
+  transform: translateY( 20px);
+	opacity: 0;
+  }
+
+  to {
+  transform: translateY( 0);
+
+	opacity: 1;
+  }
+}

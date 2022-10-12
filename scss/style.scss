@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+// @import "foundation/reset";
+// @import "foundation/variable";
+// @import "foundation/common";
+// @import "header";
+// @import "footer";
+// @import "navi";
+// @import "subpage";
+// @import "news";
+// @import "contact";
+// @import "animation";
+// @import "top";
+
+@use "foundation/_reset";
+@use "foundation/_variable";
+@use "foundation/_common";
+@use "_header";
+@use "_footer";
+@use "_navi";
+@use "_subpage";
+@use "_news";
+@use "_contact";
+@use "_animation";
+@use "_top";

@@ -1,0 +1,37 @@
+@use 'foundation/_common' as c;
+/*************************************************
+footer
+*************************************************/
+footer{
+  background: #919191;
+  padding: 2rem 0;
+  .sns-footer{
+    ul{
+      display: flex;
+      justify-content: center;
+      column-gap: 1.6rem;
+      li{
+        img{
+          width: 24px;
+          height: 24px;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+  @include c.mq(sm){
+    padding: 3rem 0 1rem;
+  }
+  p{
+    color: #fff;
+    font-family: c.$sans;
+    font-weight: 600;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: 2rem;
+    @include c.mq(sm){
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+  }
+}
